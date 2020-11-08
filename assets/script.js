@@ -1,10 +1,13 @@
 var currentQuestion = 0;
 var score = 0;
-var totalQuestions = questionsArray.length;
+var totalQuestions = questionsArray.length; //total qu
 
 // answer1El.textContent = questionsArray[0].question
 
+//this function displays the questions in the browser, and goes from the first to the second
 function displayQuestion(questionIndex) {
+
+//function within a function that handles what happens when you click the buttons
   function answerClickHandler() {
     if (this.textContent === questionsArray[questionIndex].answer) {
       score += 10;
@@ -17,7 +20,8 @@ function displayQuestion(questionIndex) {
     } else {
       displayQuestion(questionIndex + 1);
     }
-  }
+  } 
+  //this query selector selects the parent container div in html, and uses .innerHTML to display the text within, and uses string interprolation `html ${java} html`
   document.querySelector("#question").innerHTML = `
     <h2>${questionsArray[questionIndex].question}</h2>
     <button class="choices" id="answer1">${questionsArray[questionIndex].option1}</button>
