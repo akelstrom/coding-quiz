@@ -9,25 +9,19 @@ body {
     position: absolute;
     top: 20%;
     left: 10%;
-    background:rgba(247, 188, 27, 0.5);
-    border-radius: 20px;
-    padding: 20px;
-    border: 5px solid lightcoral
+    padding: 20px; 
 }
 
-.title {
+#title {
     padding-top: 20px;
     text-align: center;
     font-size: 36px;
-    text-transform: uppercase;
-    color:#08038C
+    color:black;
 }
 
 .question {
     padding: 20px;
     font-size: 22px;
-    background: lightskyblue;
-    border-radius: 20px;
     margin: 10px 0 10px 0;
     color: black
 }
@@ -43,36 +37,17 @@ body {
     border-radius: 20px;
 }
 
-.option:hover {
-    background:lightcoral;
-    color: palevioletred;
-    cursor: pointer;
-}
-
-.next-btn {
-    border: none;
-    outline: none;
-    background:rbga( 255,255,255,0.5);
-    width: 100px;
-    height: 35px;
-    border-radius: 20px;
-    cursor: pointer;
-    float: right;
-    margin: 10px;
-}
-
-.next-btn:hover {
-    background: lightcoral;
-    color: red ;
-}
-
 .result {
     height: 100px;
     text-align: center;
-    font-size: 75px;
+    font-size: 50px;
 }
 
-.option input:checked .option {
-    background: yellow ;
+#rightOrWrong {
     color: black;
+    font-size: 20px;
+}
+
+button {
+    display: block;
 }
