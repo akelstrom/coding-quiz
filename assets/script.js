@@ -4,23 +4,33 @@ var totalQuestions = questionsArray.length;
 var startButton = document.querySelector("#start-btn");
 var timerEl = document.querySelector("#countdown");
 var timeLeft = 75;
+var instructionsEl = document.querySelector("#instructions");
+var resultEl = document.querySelector("#result")
+var questionsEl = document.querySelector("#question")
 
-
+//this function is using .innerHTML to show instructions
 function startScreen() {
-  document.querySelector("#start").innerHTML = `
+    instructionsEl.innerHTML = `
     <p> Hello! Welcome to the Coding Quiz! The timer will start when you hit the start button, 
     and everytime you get a question wrong the timer will deduct 10 seconds.
     </p>
-    
     `;
+    startButton.addEventListener("click", clickStart);
 }
-
-startButton.addEventListener("click", clickStart);
 
 function clickStart() {
   displayQuestion(0);
+  //call the countdown function here
   countDown();
-  //call the timer start function here
+  instructionsEl.style.display = "none"
+  startButton.style.display = "none"
+}
+
+function scoreDisplay() {
+    questionsEl.style.display = "none"
+    resultEl.style.display = "none"
+
+    //do I want this to lead me to another function? 
 }
 
 //this function displays the questions in the browser, and goes from the first to the second
@@ -29,24 +39,25 @@ function displayQuestion(questionIndex) {
   function answerClickHandler() {
     if (this.textContent === questionsArray[questionIndex].answer) {
       score += 10;
+      resultEl.textContent = "Correct!"
     } else {
       timeLeft -= 10
+      resultEl.textContent = "Incorrect."
     }
     if (questionIndex + 1 >= totalQuestions) {
-      console.log("end");
+      scoreDisplay();
       //call another function to display results... //funtion to display high scores
     } else {
       displayQuestion(questionIndex + 1);
     }
   }
   //this query selector selects the parent container div in html, and uses .innerHTML to display the text within, and uses string interprolation `html ${java} html`
-  document.querySelector("#question").innerHTML = `
+  questionsEl.innerHTML = `
     <h2>${questionsArray[questionIndex].question}</h2>
     <button class="choices" id="answer1">${questionsArray[questionIndex].option1}</button>
     <button class="choices" id="answer2">${questionsArray[questionIndex].option2}</button>
     <button class="choices" id="answer3">${questionsArray[questionIndex].option3}</button>
     <button class="choices" id="answer4">${questionsArray[questionIndex].option4}</button>    
-    <div id="rightOrWrong"></div>
     `;
 
   document
@@ -85,6 +96,7 @@ function countDown() {
         timerEl.textContent = "";
         // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
+
       }
     }, 1000);
   }

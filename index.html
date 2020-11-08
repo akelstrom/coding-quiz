@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <div id="quizContainer" class="container">
-      <div id="title">Coding Quiz</div>
-      <div id="start"></div>
-      <div id="start-count">
-        <button class="start" id="start-btn">Start Quiz</button>
-        <h6 id="countdown"></h6>
-      </div>
-      <div id="question" class="question"></div>
+    <header>
+      <h4 id="countdown"></h4>
+      <div id="title"><h3>Coding Quiz</h3></div>
+    </header>
+
+    <div id="instructions"></div>
+    <div id="start-count">
+      <button id="start-btn">Start Quiz</button>
     </div>
-    <div id="result" class="container-result" style="display: none"></div>
+    <div id="quizContainer" class="container">
+      <div id="question" class="question"></div>
+      <div id="result" class="container-result"></div>
+    </div>
+    
     <script src="assets/questions.js"></script>
     <script src="assets/script.js"></script>
   </body>

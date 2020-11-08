@@ -19,43 +19,28 @@ body {
     color:black;
 }
 
-.question {
+#question {
     padding: 20px;
     font-size: 22px;
     margin: 10px 0 10px 0;
     color: black
 }
 
-.option {
-    width: 470px;
-    display: inline-block;
-    padding: 10px 0 10px 0;
-    vertical-align: middle;
-    background: rbga( 255,255,255,0.5);
-    margin: 10px 0 10px 10px;
-    color: black;
-    border-radius: 20px;
-}
-
-.result {
-    height: 100px;
-    text-align: center;
-    font-size: 50px;
-}
-
-#rightOrWrong {
-    color: black;
-    font-size: 20px;
-}
-
 button {
     display: block;
 }
 
+/* the instruction text on the start screen */
 #start {
-    font-size: 20px;
+    text-align: center;
 }
 
+/* the start button */
 #start-btn {
     text-align: center;
+}
+
+/* the buttons for the answer choices */
+.choices {
+    color: blue
 }
