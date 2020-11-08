@@ -1,6 +1,6 @@
 var currentQuestion = 0;
 var score = 0;
-var totalQuestions = questionsArray.length; //total qu
+var totalQuestions = questionsArray.length; 
 
 // answer1El.textContent = questionsArray[0].question
 
