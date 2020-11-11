@@ -1,52 +1,54 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
-    height: 330px;
-    width: 1000px;
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    padding: 20px; 
+  height: 330px;
+  width: 1000px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  padding: 20px;
 }
 
 #title {
-    padding-top: 20px;
-    text-align: center;
-    font-size: 36px;
-    color:black;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 36px;
+  color: black;
 }
 
 #question {
-    padding: 20px;
-    font-size: 16px;
-    margin: 10px 0 10px 0;
-    color: black
+  padding: 20px;
+  font-size: 16px;
+  margin: 10px 0 10px 0;
+  color: black;
 }
 
 button {
-    display: block;
-    background: purple
+  display: block;
+  background: purple;
 }
 
 /* the instruction text on the start screen */
 #start {
-    text-align: center;
+  text-align: center;
 }
 
 /* the start button */
 #start-btn {
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 }
 
 /* the buttons for the answer choices */
 .choices {
-    color: white
+  color: white;
 }
 
 .input-group {
-    padding-top: 50px;
+  padding-top: 50px;
+}
+
+#highscore-display {
 }

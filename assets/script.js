@@ -44,7 +44,7 @@ function displayQuestion(questionIndex) {
     }
     if (questionIndex + 1 >= totalQuestions) {
       scoreDisplay();
-      timerEl.style.display = "none"
+      timerEl.style.display = "none";
       //call another function to display results... //funtion to display high scores
     } else {
       displayQuestion(questionIndex + 1);
@@ -72,7 +72,6 @@ function displayQuestion(questionIndex) {
     .querySelector("#answer4")
     .addEventListener("click", answerClickHandler);
 }
-
 
 //got this function code below from LPS coding bootcamp in-class lesson (11/04/2020)
 function countDown() {
@@ -102,55 +101,61 @@ function countDown() {
 function scoreDisplay() {
   questionsEl.style.display = "none";
   resultEl.style.display = "none";
-  
+
   document.querySelector(".input-group").innerHTML = `
     <label for="initials">Initials:</label>
         <input type="text" name="initials" id="initials" placeholder= "Enter your initials here"/>
         <button id="save">Save</button>
     `;
   document.querySelector("#score-card").textContent = "Your score is: " + score;
-  document.querySelector("#save").addEventListener("click", renderInitials)
-
-  renderScore();
+  document.querySelector("#save").addEventListener("click", renderInitials);
+  
+  highScoreDisplay();
 }
 
- function renderInitials() {
-    var initials = document.querySelector('#initials').value;
-    localStorage.setItem('initials', initials)
- }
+function renderInitials() {
+  var initials = document.querySelector("#initials").value;
+  localStorage.setItem("initials", initials);
+
+  var highScores = loadScore();
+  //put initials and score into array object
+  var newScore = {
+    initials: initials,
+    yourScore: score,
+  };
+  //push newScore object into high scores array
+  highScores.push(newScore);
+
+  highScores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+  
+  highScoreDisplay();
+}
 
 function loadScore() {
-    var highScores = localStorage.getItem("highScores");
-    if (!highScores) {
-        highScores = [];
-    } else {
-        highScores = JSON.parse(highScores);
-    }
-    return highScores;
-  };
-
-
-var renderScore = function() {
-    var highScores = loadScore();
-//put initials and score into object
-    var newScore = {
-        initials: initials, 
-        yourScore: score
-    }
-    //push newScore object into high scores array
-    highScores.push(newScore)
-
-    highScores.sort(function (a,b) {
-        return b.score - a.score;
-    });
-
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    
-    highScoreDisplay();
+  var highScores = localStorage.getItem("highScores");
+  if (!highScores) {
+    highScores = [];
+  } else {
+    highScores = JSON.parse(highScores);
+  }
+  return highScores;
 }
 
+
 function highScoreDisplay() {
-    document.querySelector("#highscore-display").textContent = highScores
+  // document.querySelector("#highscore-display").textContent = JSON.stringify(loadScore());
+  //for loop for all the elements in load score
+  var highScores = loadScore();
+  var content = ""
+
+  for (var i = 0; i < highScores.length; i++) {
+    content = content + `<p> ${highScores[i].initials} - ${highScores[i].yourScore}</p>`
+  }
+  document.querySelector("#highscore-display").innerHTML = `${content}`
 }
 
 startScreen();
