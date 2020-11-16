@@ -75,6 +75,9 @@ function displayQuestion(questionIndex) {
 
 //got this function code below from LPS coding bootcamp in-class lesson (11/04/2020)
 function countDown() {
+  //this will have the timer appear, and will run once manually, before the "set interval" starts 
+    timerEl.textContent = timeLeft + " seconds remaining";
+    timeLeft--; 
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
     // As long as the `timeLeft` is greater than 1
@@ -96,7 +99,7 @@ function countDown() {
     }
   }, 1000);
 }
-//this part needs to be fixed.
+
 
 function scoreDisplay() {
   questionsEl.style.display = "none";
